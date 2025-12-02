@@ -2,9 +2,9 @@
 <html lang="fr">
 
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portfolio – Développeur Web</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Google Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,225 +15,135 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/style.css" />
 </head>
 
 <body>
 
-  <header>
-    <div class="container header-inner">
-      <div class="logo">
-        <img src="/assets/imgs/logo.png" alt="">
-      </div>
-      <nav class="main-nav">
-        <a href="#about">Ma Personallité</a>
-        <a href="#skills">Mes Compétences</a>
-        <a href="#projects">Mes Projets</a>
-        <a href="#contact">Me Contacter</a>
-      </nav>
+  <header class="topbar">
+    <div class="logo">
+      <img src="/assets/imgs/logo.png" alt="logo">
     </div>
+    
+    <nav class="main-nav">
+      <a href="#projets">Projets</a>
+      <a href="#competences">Compétences</a>
+      <a href="#apropos">À propos</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </header>
 
-  <main class="main-wrapper">
 
-    <section class="top">
-      <div class="top-inner">
-        <h1>Développeur<br>Web</h1>
-        <h2>Développeur Web Javascript.</h2>
+  <section class="top">
+    <div class="top-inner">
+      <div class="top-text">
+        <h1>Développeur<br><span>Web</span></h1>
         <p>
-          Passionné par la création d’applications et l’essor des technologies web,
-          j’adore concevoir des interfaces modernes et dynamiques.
+          Développeur Web JavaScript, passionné par la création d’expériences
+          modernes, fluides et orientées utilisateur.
         </p>
-        <button class="btn-primary" data-scroll="#about">Découvrir</button>
+
+      </div>
+      <div class="top-illustration">
+        <img src="/assets/imgs/logo.png" alt="logo">
+        <a class="github-wrap" href="https://github.com/elios134?tab=repositories" target="_blank"></a>
+      </div>
+    </div>
+  </section>
+
+  <main>
+
+    <section id="projets" class="projects-section">
+      <div class="section-title">
+        <h2>Projets</h2>
+      </div>
+
+      <div class="projects-carousel">
+        <button class="carousel-arrow" id="prevProject" aria-label="Projet précédent">
+          ‹
+        </button>
+
+        <div class="carousel-frame">
+          <div class="project-card">
+            <div class="project-image-wrapper">
+              <img id="projectImage" src="/assets/imgs/Capture space-invader.png" alt="Capture du projet" />
+            </div>
+            <div class="project-content">
+              <h3 id="projectTitle">Space Invaders</h3>
+              <p id="projectDescription">
+              </p>
+              <div class="project-tools" id="projectTools">
+                <!-- Les techno sont injectées par JS -->
+              </div>
+              <a id="projectLink" href="#" class="project-link" target="_blank" rel="noopener">
+                Voir sur GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <button class="carousel-arrow" id="nextProject" aria-label="Projet suivant">
+          ›
+        </button>
       </div>
     </section>
-    <!-- PRÉSENTATION -->
-    <section id="about" class="section">
-      <h2 class="section-title">Présentation</h2>
-      <div class="presentation-grid">
-        <div class="presentation-card">
-          <h3>Qui suis-je ?</h3>
+
+
+    <section id="competences" class="skills-section">
+      <div class="skills-header">
+        <h2>Compétences</h2>
+      </div>
+      <div class="skills-strip">
+        <div class="skill-pill">
+          <img src="/assets/imgs/logo-Html.png" alt="Logo-html5">
+          <img src="/assets/imgs/logo-Css.png" alt="Logo-Css3">
+          <img src="/assets/imgs/logo-js.png" alt="Logo-Javascript">
+          <img src="/assets/imgs/nodejs-logo.png" alt="Logo-nodejs">
+          <img id="php" src="/assets/imgs/logo-php.png" alt="Logo-php">
+          <img src="/assets/imgs/Figma_logo.png" alt="Figma_logo">
+        </div>
+    </section>
+
+
+    <section id="apropos" class="about-section">
+      <div class="section-title">
+        <h2>À propos</h2>
+      </div>
+      <div class="about-inner">
+        <div class="about-photo">
+
+          <div class="photo-circle">
+            <img src="/assets/imgs/Moi(emoji.png" alt="avatar">
+          </div>
+        </div>
+        <div class="about-text">
+          <h3>André Bribanick</h3>
+          <p class="job-title">Développeur Web</p>
           <p>
-            Je suis un développeur web spécialisé en Javascript, front-end et back-end.
-            J’aime résoudre des problèmes, apprendre de nouvelles technologies
-            et transformer vos idées en projets concrets.
-            Curieux, autonome et rigoureux, je cherche toujours à améliorer
-            l’expérience utilisateur dans chacun de mes projets.
+            Je conçois des sites et applications web modernes, performants et centrés
+            sur l’expérience utilisateur.
           </p>
+          <p>
+            Je continue d’apprendre chaque jour pour vous proposer des solutions fiables
+            et adaptées à vos besoins: interfaces claires et modernes, animations
+            soignées et responsive.
+          </p>
+          <div class="about-links">
+            <a href="https://www.linkedin.com/in/andre-bribanick-7a016412b/" class="btn-secondary">LinkedIn</a>
+            <a href="https://github.com/elios134?tab=repositories" class="btn-secondary">GitHub</a>
+          </div>
         </div>
-        <div class="avatar-wrap">
-          <img src="/assets/imgs/Moi(emoji.png" alt="">
-          <a class="github-wrap" href="https://github.com/elios134?tab=repositories" target="_blank">
-          </a>
-        </div>
-
       </div>
     </section>
 
-    <!-- OUTILS FAVORIS -->
-    <section id="skills" class="section">
-      <h2 class="section-title">Mes Techno Favoris</h2>
-      <div class="tools-grid">
 
-        <article class="tool-card">
-          <h3>Développeur Frontend</h3>
-          <div class="tool-icons">
-            <img src="/assets/imgs/logo-Html.png" alt="Logo-html5">
-            <img src="/assets/imgs/logo-Css.png" alt="Logo-Css3">
-            <img src="/assets/imgs/logo-js.png" alt="Logo-Javascript">
-          </div>
-        </article>
-
-        <article class="tool-card">
-          <h3>Développeur Backend</h3>
-          <div class="tool-icons">
-            <img src="/assets/imgs/nodejs-logo.png" alt="Logo-nodejs">
-            <img id="php" src="/assets/imgs/logo-php.png" alt="Logo-php">
-          </div>
-        </article>
-
-        <article class="tool-card">
-          <h3>Designer – UI/UX</h3>
-          <div class="tool-icons">
-            <img src="/assets/imgs/Figma_logo.png" alt="Figma_logo">
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- PROJETS -->
-    <section id="projects" class="section projects-section">
-      <h2 class="section-title">Mes Projets</h2>
-
-      <div class="projects-list">
-
-        <!-- Projet 1 -->
-        <article class="project-card">
-          <div class="project-image">
-            <img src="/assets/imgs/Capture Island-choice.png" alt="Island-choice">
-          </div>
-          <div class="project-content">
-            <h3>Island Choice</h3>
-            <p>
-              Island Choice est un jeux de style labyrinthe ou vous devez faire des choix pour exploré cette ile plein
-              de mystere
-            </p>
-            <div class="project-tools">
-              <img src="/assets/imgs/logo-Html.png" alt="Logo-html5">
-              <img src="/assets/imgs/logo-Css.png" alt="Logo-Css3">
-              <img src="/assets/imgs/logo-js.png" alt="Logo-Javascript">
-            </div>
-            <a class="github-wrap" href="https://github.com/elios134?tab=repositories" target="_blank">
-            </a>
-          </div>
-        </article>
-
-        <!-- Projet 2 -->
-        <article class="project-card">
-          <div class="project-image">
-            <img src="/assets/imgs/Capture space-invader.png" alt="space-invader">
-          </div>
-          <div class="project-content">
-            <h3>Space Invader</h3>
-            <p>
-              Création d’un mini-jeu Space Invader responsive,
-              codé en JavaScript, jouable sur ordinateur et mobile.
-            </p>
-            <div class="project-tools">
-              <img src="/assets/imgs/logo-Html.png" alt="Logo-html5">
-              <img src="/assets/imgs/logo-Css.png" alt="Logo-Css3">
-              <img src="/assets/imgs/logo-js.png" alt="Logo-Javascript">
-            </div>
-            <a class="github-wrap" href="https://github.com/elios134?tab=repositories" target="_blank">
-            </a>
-          </div>
-        </article>
-
-        <!-- Projet 3 -->
-        <article class="project-card">
-          <div class="project-image">
-            <img src="/assets/imgs/Capture War-of-lutin.png" alt="War-of-lutin">
-          </div>
-          <div class="project-content">
-            <h3>War of Lutin</h3>
-            <p>
-              War of Lutin est un jeux de combat tour par tour ou le joueur et l'ordinateur partages les memes
-              attaques avec chacune leur caraterique précise
-            </p>
-            <div class="project-tools">
-              <img src="/assets/imgs/logo-Html.png" alt="Logo-html5">
-              <img src="/assets/imgs/logo-Css.png" alt="Logo-Css3">
-              <img src="/assets/imgs/logo-js.png" alt="Logo-Javascript">
-            </div>
-            <a class="github-wrap" href="https://github.com/elios134?tab=repositories" target="_blank">
-            </a>
-          </div>
-        </article>
-
-        <!-- Projet 4 -->
-        <article class="project-card">
-          <div class="project-image">
-            <img src="/assets/imgs/Morpion-Puissance4.png" alt="">
-          </div>
-          <div class="project-content">
-            <h3>Morpion/Puissance-4</h3>
-            <p>
-              Ce projet consiste a refaire un jeux de Morpion et de Puissance-4 en utilisant le Js pour toute les
-              fonctionnalité des jeux
-            </p>
-            <div class="project-tools">
-              <img src="/assets/imgs/logo-Html.png" alt="Logo-html5">
-              <img src="/assets/imgs/logo-Css.png" alt="Logo-Css3">
-              <img src="/assets/imgs/logo-js.png" alt="Logo-Javascript">
-            </div>
-            <a class="github-wrap" href="https://github.com/elios134?tab=repositories" target="_blank">
-            </a>
-          </div>
-        </article>
-
-        <!-- Voir plus -->
-        <article class="project-card">
-          <div class="project-image">
-            <img src="/assets/imgs/Profils-git.png" alt="">
-          </div>
-          <div class="project-content">
-            <h3>Pour voir tout les projets que j'ai pu réalisé cliqué ici !</h3>
-            <a class="github-wrap" href="https://github.com/elios134?tab=repositories" target="_blank">
-            </a>
-          </div>
-        </article>
-
-        <!-- Projet 5 -->
-        <article class="project-card">
-          <div class="project-image">
-            <img src="/assets/imgs/Capture-Pendu.png" alt="">
-          </div>
-          <div class="project-content">
-            <h3>Le pendu</h3>
-            <p>
-              Réalisation du célebre jeux du pendu qu'on a tous connu pendant notre enfance a l'école, utilisant le Js
-              pour toute les fonctionnalité du jeux
-            </p>
-            <div class="project-tools">
-              <img src="/assets/imgs/logo-Html.png" alt="Logo-html5">
-              <img src="/assets/imgs/logo-Css.png" alt="Logo-Css3">
-              <img src="/assets/imgs/logo-js.png" alt="Logo-Javascript">
-            </div>
-            <a class="github-wrap" href="https://github.com/elios134?tab=repositories" target="_blank">
-            </a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
     <section id="contact" class="section">
       <h2 class="section-title">Travaillons ensemble</h2>
       <div class="contact-container">
         <div class="contact-card">
-          <img src="/assets/imgs/logo-tel.svg" alt="">
-          <p>06-12-13-14-15</p>
-          <img src="/assets/imgs/logo-mail.svg" alt="">
+          <img src="/assets/imgs/logo-tel.svg" alt="icon-tel">
+          <p>06-60-58-78-79</p>
+          <img src="/assets/imgs/logo-mail.svg" alt="icon-mail">
           <p><a href="mailto:bribanick@hotmail.fr">bribanick@hotmail.fr</a></p>
         </div>
 
@@ -253,15 +163,16 @@
         </div>
       </div>
     </section>
-
   </main>
+
   <footer>
     <p>copyright : André bribanick</p>
     <div class="logo">
-      <img src="/assets/imgs/logo.png" alt="">
+      <img src="/assets/imgs/logo.png" alt="logo">
     </div>
     <p>portefolio v1</p>
   </footer>
+
   <script src="/assets/js/scrip.js"></script>
 </body>
 
