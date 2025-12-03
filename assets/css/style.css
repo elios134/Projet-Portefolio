@@ -124,6 +124,8 @@ main {
 .section-title {
   max-width: var(--max-width);
   margin: 0 auto 24px;
+-webkit-text-stroke-width: 1px;
+-webkit-text-stroke-color: var(--Contour-Titres, #FF840A);
 }
 
 .section-title h2 {
@@ -253,13 +255,6 @@ main {
 .skills-section {
   max-width: var(--max-width);
   margin: 0 auto 80px;
-}
-
-.skills-header h2 {
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
-  font-size: 22px;
-  margin-bottom: 16px;
 }
 
 .skills-strip {
