@@ -2,8 +2,8 @@
   --bg-main: #050505;
   --bg-alt: #0e0e0e;
   --bg-card: #141414;
-  --accent: #ff8c1a;
-  --accent-strong: #ff4d00;
+  --accent: #ffb347;
+  --accent-strong: #ffb347;
   --text-main: #f5f5f5;
   --text-muted: #a0a0a0;
   --border-radius-lg: 26px;
@@ -11,10 +11,13 @@
   --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.6);
   --max-width: 1440px;
 }
+*{
+  scroll-behavior: smooth;
+}
 
 body {
-  margin: 0;
-  font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  margin: 15px;
+  font-family: "Poppins";
   background: var(--bg-main);
   color: var(--text-main);
 }
@@ -65,9 +68,9 @@ body {
   width: 100%;
 }
 
-
-.top {
+#top {
   background: radial-gradient(103.65% 76.15% at 51.91% 100%, #FF840A 0%, #963C04 29.67%, #050505 100%);
+  border-radius: 15px;
   padding: 60px 20px 80px;
 }
 
@@ -80,20 +83,24 @@ body {
   justify-content: space-between;
 }
 
-.top-text h1 {
-  font-size: 46px;
-  line-height: 1.1;
+.top-text {
+  h1 {
+    font-size: 46px;
+    line-height: 1.1;
+
+  }
+
+  h1 span {
+    color: var(--accent);
+  }
+
+  p {
+    margin-top: 18px;
+    max-width: 420px;
+    color: var(--text-muted);
+  }
 }
 
-.top-text h1 span {
-  color: var(--accent);
-}
-
-.top-text p {
-  margin-top: 18px;
-  max-width: 420px;
-  color: var(--text-muted);
-}
 
 .top-illustration {
   flex: 0 0 320px;
@@ -124,8 +131,8 @@ main {
 .section-title {
   max-width: var(--max-width);
   margin: 0 auto 24px;
--webkit-text-stroke-width: 1px;
--webkit-text-stroke-color: var(--Contour-Titres, #FF840A);
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: var(--Contour-Titres, #FF840A);
 }
 
 .section-title h2 {
@@ -141,18 +148,20 @@ main {
 .projects-section {
   max-width: var(--max-width);
   margin: 0 auto 80px;
+  
 }
 
 .projects-carousel {
   display: flex;
   align-items: center;
   gap: 16px;
+  
 }
 
 .carousel-arrow {
   background: transparent;
   color: var(--accent);
-  border: 1px solid rgba(255, 140, 26, 0.5);
+  border: 1px solid #ffb347;
   border-radius: 50%;
   width: 40px;
   height: 40px;
@@ -181,20 +190,94 @@ main {
   overflow: hidden;
   display: grid;
   grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.5fr);
-  opacity: 1;
-  transition: opacity 0.4s ease;
+  
 }
 
-.project-card.fade-out {
-  opacity: 0;
+
+/* Définissez la durée et la fonction de lissage (timing function) de l'animation */
+.project-card.slide-out-left,
+.project-card.slide-out-right,
+.project-card.slide-in-left,
+.project-card.slide-in-right {
+  animation-duration: 0.7s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: both;
 }
 
-.project-card.fade-in {
-  opacity: 1;
+/* 1. Sortie vers la Gauche (Quand on clique sur 'Suivant') */
+.project-card.slide-out-left {
+  animation-name: slideOutLeft;
+}
+
+@keyframes slideOutLeft {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  to {
+    opacity: 0;
+    /* Déplace la carte hors de la vue à gauche */
+    transform: translateX(-90%);
+  }
+}
+
+/* 2. Entrée depuis la Droite (Quand on clique sur 'Suivant') */
+.project-card.slide-in-right {
+  animation-name: slideInRight;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    /* Fait arriver la carte depuis la droite */
+    transform: translateX(90%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* 3. Sortie vers la Droite (Quand on clique sur 'Précédent') */
+.project-card.slide-out-right {
+  animation-name: slideOutRight;
+}
+
+@keyframes slideOutRight {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  to {
+    opacity: 0;
+    /* Déplace la carte hors de la vue à droite */
+    transform: translateX(90%);
+  }
+}
+
+/* 4. Entrée depuis la Gauche (Quand on clique sur 'Précédent') */
+.project-card.slide-in-left {
+  animation-name: slideInLeft;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    /* Fait arriver la carte depuis la gauche */
+    transform: translateX(-90%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .project-image-wrapper {
-  background: #000;
+  background: transparent;
   padding: 18px;
   display: flex;
   align-items: center;
@@ -202,6 +285,7 @@ main {
 
   img {
     width: 100%;
+    max-height: 271px;
     border-radius: 18px;
     object-fit: contain;
   }
@@ -290,7 +374,8 @@ main {
 .about-inner {
   display: grid;
   grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.4fr);
-  gap: 40px;
+  justify-items: center;
+  gap: 20px;
   align-items: center;
   background: linear-gradient(to bottom right, #171717, #0c0c0c);
   border: 2px solid #d47a2f;
@@ -338,9 +423,9 @@ main {
   justify-content: center;
   padding: 8px 18px;
   border-radius: 999px;
-  border: 1px solid rgba(255, 140, 26, 0.5);
-  background: transparent;
-  color: var(--accent);
+  border: 1px solid #ffb347;
+  background: #d47a2f;
+  color: var(--text-main);
   font-size: 12px;
   text-transform: uppercase;
   text-decoration: none;
@@ -348,8 +433,8 @@ main {
 }
 
 .btn-secondary:hover {
-  background: #d47a2f;
-  color: #000;
+  background: transparent;
+  color: #ffb347;
 }
 
 /* -----------------------
@@ -372,6 +457,7 @@ main {
   p {
     font-size: 25px;
     margin-bottom: 1rem;
+    color: #ffb347;
   }
 
   a {
@@ -426,7 +512,7 @@ main {
 
   button {
     padding: 12px 0;
-    background: transparent;
+    background: #d47a2f;
     border: 2px solid #d47a2f;
     border-radius: 10px;
     font-size: 18px;
@@ -436,8 +522,8 @@ main {
   }
 
   button:hover {
-    background: #d47a2f;
-    color: #000;
+    background: transparent;
+    color: #d47a2f;
   }
 }
 
@@ -448,7 +534,7 @@ main {
 footer {
   background: radial-gradient(127.08% 93.36% at 50% 114.21%, #FF840A 0%, #963C04 36.54%, #050505 98.56%);
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 
   p {
@@ -486,8 +572,9 @@ footer {
   }
 
   .about-inner {
-    text-align: center;   
+    text-align: center;
   }
+
   .about-links {
     justify-content: center;
   }

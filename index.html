@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -5,6 +6,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portfolio – Développeur Web</title>
+
 
   <!-- Google Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,7 +22,7 @@
 
 <body>
 
-  <header class="topbar">
+  <header id="header" class="topbar">
     <div class="logo">
       <img src="/assets/imgs/logo.png" alt="logo">
     </div>
@@ -34,7 +36,7 @@
   </header>
 
 
-  <section class="top">
+  <section id="top">
     <div class="top-inner">
       <div class="top-text">
         <h1>Développeur<br><span>Web</span></h1>
@@ -68,10 +70,14 @@
             </div>
             <div class="project-content">
               <h3 id="projectTitle">Space Invaders</h3>
-              <p id="projectDescription">
+              <p id="projectDescription">Mini-jeu Space Invaders réalisé en JavaScript avec gestion des collisions,
+                contrôles clavier et contrôles tactiles.
               </p>
               <div class="project-tools" id="projectTools">
                 <!-- Les techno sont injectées par JS -->
+                <span class="tool-pill">HTML5</span>
+                <span class="tool-pill">CSS3</span>
+                <span class="tool-pill">JavaScript</span>
               </div>
               <a id="projectLink" href="#" class="project-link" target="_blank" rel="noopener">
                 Voir sur GitHub
@@ -126,8 +132,9 @@
             soignées et responsive.
           </p>
           <div class="about-links">
-            <a href="https://www.linkedin.com/in/andre-bribanick-7a016412b/" class="btn-secondary">LinkedIn</a>
-            <a href="https://github.com/elios134?tab=repositories" class="btn-secondary">GitHub</a>
+            <a href="https://www.linkedin.com/in/andre-bribanick-7a016412b/" target="_blank" class="
+              btn-secondary">LinkedIn</a>
+            <a href="https://github.com/elios134?tab=repositories" target="_blank" class=" btn-secondary">GitHub</a>
           </div>
         </div>
       </div>
@@ -141,7 +148,7 @@
       <div class="contact-container">
         <div class="contact-card">
           <img src="/assets/imgs/logo-tel.svg" alt="icon-tel">
-          <p>06-60-58-78-79</p>
+          <p><a href="tel:+33660587879"></a>06-60-58-78-79</p>
           <img src="/assets/imgs/logo-mail.svg" alt="icon-mail">
           <p><a href="mailto:bribanick@hotmail.fr">bribanick@hotmail.fr</a></p>
         </div>
@@ -167,7 +174,7 @@
   <footer>
     <p>copyright : André bribanick</p>
     <div class="logo">
-      <a href="">
+      <a href="#top">
         <img src="/assets/imgs/logo.png" alt="logo">
       </a>
     </div>

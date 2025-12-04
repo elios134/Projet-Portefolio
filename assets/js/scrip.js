@@ -41,8 +41,6 @@ const projects = [
   },
 ];
 
-let currentIndex = 0;
-
 const projectImage = document.getElementById("projectImage");
 const projectTitle = document.getElementById("projectTitle");
 const projectDescription = document.getElementById("projectDescription");
@@ -52,17 +50,26 @@ const projectLink = document.getElementById("projectLink");
 const prevBtn = document.getElementById("prevProject");
 const nextBtn = document.getElementById("nextProject");
 
-// 👉 la carte entière
+let currentIndex = 0;
+// Nouvelle variable pour suivre la direction de l'animation
+let direction = 1; // 1 pour Suivant, -1 pour Précédent
+
 const projectCard = document.querySelector(".project-card");
 
 function renderProject(index) {
   const project = projects[index];
+  // Déterminer la classe d'animation d'entrée
+  const entranceClass = direction === 1 ? "slide-in-right" : "slide-in-left";
+  // Déterminer la classe d'animation de sortie
+  const exitClass = direction === 1 ? "slide-out-left" : "slide-out-right";
 
-  // Lancer le fade-out
-  projectCard.classList.add("fade-out");
+  // 1. Lancer l'animation de sortie (la carte actuelle glisse)
+  // On retire les anciennes classes, on ajoute l'animation de sortie.
+  projectCard.classList.remove("slide-in-right", "slide-in-left");
+  projectCard.classList.add(exitClass);
 
   setTimeout(() => {
-    // Mettre à jour le contenu
+    // Mettre à jour le contenu (à la fin de l'animation de sortie)
     projectImage.src = project.image;
     projectImage.alt = `Capture du projet ${project.title}`;
     projectTitle.textContent = project.title;
@@ -77,40 +84,41 @@ function renderProject(index) {
       projectToolsContainer.appendChild(span);
     });
 
-    // Remplacer fade-out par fade-in
-    projectCard.classList.remove("fade-out");
-    projectCard.classList.add("fade-in");
+    // 2. Lancer l'animation d'entrée (la nouvelle carte glisse)
+    // On retire l'animation de sortie, on ajoute l'animation d'entrée.
+    projectCard.classList.remove(exitClass);
+    projectCard.classList.add(entranceClass);
 
     // Nettoyage de la classe après l'anim
     setTimeout(() => {
-      projectCard.classList.remove("fade-in");
-    }, 400); // même durée que la transition CSS
-  }, 200); // moitié du temps pour que le fondu soit smooth
+      projectCard.classList.remove(entranceClass);
+    }, 700); // Mettre la durée de l'animation CSS
+  }, 700); // Mettre la durée de l'animation CSS pour une transition fluide
 }
 
 // Navigation
 prevBtn.addEventListener("click", () => {
+  direction = -1; // Animation vers la droite
   currentIndex = (currentIndex - 1 + projects.length) % projects.length;
   renderProject(currentIndex);
 });
 
 nextBtn.addEventListener("click", () => {
+  direction = 1; // Animation vers la gauche
   currentIndex = (currentIndex + 1) % projects.length;
   renderProject(currentIndex);
 });
 
-// Init
-renderProject(currentIndex);
-
-// Scroll smooth nav
-document.addEventListener("click", (event) => {
-  const target = event.target;
-  if (target.matches('nav a[href^="#"]')) {
-    event.preventDefault();
-    const href = target.getAttribute("href");
-    const section = document.querySelector(href);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
-    }
+document.addEventListener("keydown", (e) => {
+  if (e.key === "ArrowLeft") {
+    direction = -1; // Animation vers la droite
+    currentIndex = (currentIndex - 1 + projects.length) % projects.length;
+    renderProject(currentIndex);
+  } else if (e.key === "ArrowRight") {
+    direction = 1; // Animation vers la gauche
+    currentIndex = (currentIndex + 1) % projects.length;
+    renderProject(currentIndex);
   }
 });
+// Init
+renderProject(currentIndex);
