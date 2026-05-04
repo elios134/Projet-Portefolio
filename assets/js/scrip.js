@@ -3,7 +3,7 @@ const projects = [
     title: "Space Invaders",
     description:
       "Mini-jeu Space Invaders réalisé en JavaScript avec gestion des collisions, contrôles clavier et contrôles tactiles.",
-    image: "/assets/imgs/Capture space-invader.png",
+    image: "./assets/imgs/Capture space-invader.png", // Chemin relatif corrigé
     tools: ["HTML5", "CSS3", "JavaScript"],
     link: "https://github.com/elios134/SpaceInvader"
   },
@@ -11,7 +11,7 @@ const projects = [
     title: "Island Choice",
     description:
       "Island Choice est un jeu de style labyrinthe où vous devez faire des choix pour explorer cette île pleine de mystères.",
-    image: "/assets/imgs/Capture Island-choice.png",
+    image: "./assets/imgs/Capture Island-choice.png", // Chemin relatif corrigé
     tools: ["HTML5", "CSS3", "JavaScript"],
     link: "https://github.com/elios134/Island-Choice"
   },
@@ -19,7 +19,7 @@ const projects = [
     title: "War of Lutin",
     description:
       "War of Lutin est un jeu de combat tour par tour où le joueur et l'ordinateur partagent les mêmes attaques, chacune avec ses caractéristiques propres.",
-    image: "/assets/imgs/Capture War-of-lutin.png",
+    image: "./assets/imgs/Capture War-of-lutin.png", // Chemin relatif corrigé
     tools: ["HTML5", "CSS3", "JavaScript"],
     link: "https://github.com/elios134/War-of-Lutin"
   },
@@ -27,7 +27,7 @@ const projects = [
     title: "Morpion/Puissance-4",
     description:
       "Ce projet consiste à recréer un jeu de Morpion et de Puissance-4 en JavaScript pour gérer toutes les fonctionnalités de jeu.",
-    image: "/assets/imgs/Morpion-Puissance4.png",
+    image: "./assets/imgs/Morpion-Puissance4.png", // Chemin relatif corrigé
     tools: ["HTML5", "CSS3", "JavaScript"],
     link: "https://github.com/elios134/Morpion-Project"
   },
@@ -35,7 +35,7 @@ const projects = [
     title: "Le Pendu",
     description:
       "Réalisation du célèbre jeu du pendu qu'on a tous connu à l'école, en utilisant JavaScript pour toutes les fonctionnalités du jeu.",
-    image: "/assets/imgs/Capture-Pendu.png",
+    image: "./assets/imgs/Capture-Pendu.png", // Chemin relatif corrigé
     tools: ["HTML5", "CSS3", "JavaScript"],
     link: "https://github.com/elios134/Pendu-js-td5"
   },
@@ -64,7 +64,6 @@ function renderProject(index) {
   const exitClass = direction === 1 ? "slide-out-left" : "slide-out-right";
 
   // 1. Lancer l'animation de sortie (la carte actuelle glisse)
-  // On retire les anciennes classes, on ajoute l'animation de sortie.
   projectCard.classList.remove("slide-in-right", "slide-in-left");
   projectCard.classList.add(exitClass);
 
@@ -85,15 +84,14 @@ function renderProject(index) {
     });
 
     // 2. Lancer l'animation d'entrée (la nouvelle carte glisse)
-    // On retire l'animation de sortie, on ajoute l'animation d'entrée.
     projectCard.classList.remove(exitClass);
     projectCard.classList.add(entranceClass);
 
     // Nettoyage de la classe après l'anim
     setTimeout(() => {
       projectCard.classList.remove(entranceClass);
-    }, 700); // Mettre la durée de l'animation CSS
-  }, 700); // Mettre la durée de l'animation CSS pour une transition fluide
+    }, 700); 
+  }, 700); 
 }
 
 // Navigation
@@ -111,14 +109,15 @@ nextBtn.addEventListener("click", () => {
 
 document.addEventListener("keydown", (e) => {
   if (e.key === "ArrowLeft") {
-    direction = -1; // Animation vers la droite
+    direction = -1; 
     currentIndex = (currentIndex - 1 + projects.length) % projects.length;
     renderProject(currentIndex);
   } else if (e.key === "ArrowRight") {
-    direction = 1; // Animation vers la gauche
+    direction = 1; 
     currentIndex = (currentIndex + 1) % projects.length;
     renderProject(currentIndex);
   }
 });
+
 // Init
 renderProject(currentIndex);
