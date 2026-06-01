@@ -11,15 +11,35 @@
   --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.6);
   --max-width: 1440px;
 }
-*{
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
   scroll-behavior: smooth;
 }
 
 body {
   margin: 15px;
-  font-family: "Poppins";
+  font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   background: var(--bg-main);
   color: var(--text-main);
+}
+
+/* Accessibilité clavier */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* Décalage des ancres sous le header collant */
+section[id] {
+  scroll-margin-top: 110px;
 }
 
 .topbar {
@@ -113,10 +133,18 @@ body {
     width: 167.741px;
     height: 62.176px;
     background-color: var(--text-muted);
-    mask-image: url('/assets/imgs/logo-github.png');
+    mask-image: url('../imgs/logo-github.png');
     mask-size: contain;
     mask-repeat: no-repeat;
     mask-position: center;
+    -webkit-mask-image: url('../imgs/logo-github.png');
+    -webkit-mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+  }
+
+  .github-wrap:hover {
+    background-color: var(--accent);
   }
 }
 

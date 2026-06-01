@@ -108,12 +108,16 @@ nextBtn.addEventListener("click", () => {
 });
 
 document.addEventListener("keydown", (e) => {
+  // Ne pas détourner les flèches quand l'utilisateur saisit du texte
+  const tag = document.activeElement?.tagName;
+  if (tag === "INPUT" || tag === "TEXTAREA") return;
+
   if (e.key === "ArrowLeft") {
-    direction = -1; 
+    direction = -1;
     currentIndex = (currentIndex - 1 + projects.length) % projects.length;
     renderProject(currentIndex);
   } else if (e.key === "ArrowRight") {
-    direction = 1; 
+    direction = 1;
     currentIndex = (currentIndex + 1) % projects.length;
     renderProject(currentIndex);
   }
