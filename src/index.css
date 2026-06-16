@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-bg font-sans text-content antialiased;
+  }
+}
+
+@layer components {
+  /* Carte "glassmorphism" reprise de la maquette, recolorée aux teintes prod */
+  .glass-card {
+    background: linear-gradient(to bottom right, #171717, #0c0c0c);
+    border: 1px solid theme('colors.accent.deep');
+    box-shadow: theme('boxShadow.soft');
+  }
+
+  /* Icône Material Symbols */
+  .material-symbols-outlined {
+    font-family: 'Material Symbols Outlined';
+    font-weight: normal;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+  }
+}

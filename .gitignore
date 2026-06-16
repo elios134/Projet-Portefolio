@@ -1,0 +1,14 @@
+# Dépendances
+node_modules
+
+# Build
+dist
+dist-ssr
+
+# Logs
+*.log
+npm-debug.log*
+
+# Éditeurs / OS
+.DS_Store
+*.local
