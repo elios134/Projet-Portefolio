@@ -9,6 +9,20 @@
   body {
     @apply bg-bg font-sans text-content antialiased;
   }
+
+  /* Accessibilité clavier */
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible {
+    outline: 2px solid theme('colors.accent.DEFAULT');
+    outline-offset: 3px;
+  }
+
+  /* Décalage des ancres sous la navbar fixe (h-20 = 80px) */
+  section[id] {
+    scroll-margin-top: 96px;
+  }
 }
 
 @layer components {
