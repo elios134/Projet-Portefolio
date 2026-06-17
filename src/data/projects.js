@@ -7,7 +7,7 @@ export const projects = [
       'Mini-jeu Space Invaders réalisé en JavaScript avec gestion des collisions, contrôles clavier et contrôles tactiles.',
     image: './assets/imgs/Capture space-invader.png',
     tools: ['HTML5', 'CSS3', 'JavaScript'],
-    link: 'https://github.com/elios134/SpaceInvader',
+    link: 'https://elios134.github.io/SpaceInvader/',
   },
   {
     title: 'Island Choice',
