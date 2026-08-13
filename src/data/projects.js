@@ -23,7 +23,7 @@ export const projects = [
       "War of Lutin est un jeu de combat tour par tour où le joueur et l'ordinateur partagent les mêmes attaques, chacune avec ses caractéristiques propres.",
     image: './assets/imgs/Capture War-of-lutin.png',
     tools: ['HTML5', 'CSS3', 'JavaScript'],
-    link: 'https://github.com/elios134/War-of-Lutin',
+    link: 'https://elios134.github.io/War-of-Lutin/',
   },
   {
     title: 'Morpion / Puissance-4',
