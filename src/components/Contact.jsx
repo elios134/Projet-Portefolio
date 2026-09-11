@@ -1,79 +1,35 @@
-import SectionTitle from './SectionTitle'
-
 export default function Contact() {
   return (
-    <section id="contact" className="mx-auto max-w-container px-6 py-24">
-      <div className="mb-12 text-center">
-        <SectionTitle>Travaillons ensemble</SectionTitle>
-      </div>
-
-      <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2">
-        {/* Coordonnées */}
-        <div className="space-y-6">
-          <div className="flex items-center gap-3 text-2xl text-accent">
-            <span className="material-symbols-outlined">call</span>
-            <span>06-60-58-78-79</span>
+    <section id="contact" className="mx-auto max-w-container px-7 py-24">
+      <div className="hud relative overflow-hidden border border-line-strong bg-gradient-to-b from-panel to-bg-alt px-8 py-16 text-center">
+        <div
+          className="pointer-events-none absolute inset-0"
+          style={{ background: 'radial-gradient(600px 300px at 50% 120%, rgba(34,211,238,0.15), transparent)' }}
+        />
+        <div className="relative">
+          <div className="kick">
+            <span className="b">[</span> 06 <span className="b">//</span> CONTACT <span className="b">]</span>
           </div>
-          <div className="flex items-center gap-3 text-2xl text-accent">
-            <span className="material-symbols-outlined">mail</span>
-            <a href="mailto:bribanick@hotmail.fr" className="hover:underline">
-              bribanick@hotmail.fr
+          <h2 className="mb-2.5 mt-3 font-display text-[clamp(30px,5vw,48px)] font-bold">
+            Travaillons ensemble
+          </h2>
+          <p className="mx-auto mb-7 max-w-md text-content-muted">
+            Un projet web ou desktop en tête ? N'hésitez pas à me contacter.
+          </p>
+          <div className="flex flex-wrap justify-center gap-4">
+            <a className="btn btn-cyan" href="mailto:andrebribanick@gmail.com">
+              ▸ Envoyer un email
+            </a>
+            <a
+              className="btn btn-ghost"
+              href="https://www.linkedin.com/in/andre-bribanick-7a016412b/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              LinkedIn
             </a>
           </div>
         </div>
-
-        {/* Formulaire */}
-        <form
-          action="#"
-          method="post"
-          className="glass-card flex flex-col gap-5 rounded-lg p-8"
-        >
-          <div className="flex flex-col gap-2">
-            <label htmlFor="name" className="text-base text-white">
-              Nom
-            </label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              required
-              className="border-0 border-b-2 border-accent-deep bg-transparent px-1 py-2 text-white outline-none focus:border-accent"
-            />
-          </div>
-
-          <div className="flex flex-col gap-2">
-            <label htmlFor="email" className="text-base text-white">
-              Mail
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              required
-              className="border-0 border-b-2 border-accent-deep bg-transparent px-1 py-2 text-white outline-none focus:border-accent"
-            />
-          </div>
-
-          <div className="flex flex-col gap-2">
-            <label htmlFor="message" className="text-base text-white">
-              Message
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              rows="6"
-              required
-              className="rounded-lg border-2 border-accent-deep bg-bg-alt p-3 text-white outline-none focus:border-accent"
-            />
-          </div>
-
-          <button
-            type="submit"
-            className="rounded-lg border-2 border-accent-deep bg-accent-deep py-3 text-lg font-semibold text-white transition-all hover:bg-transparent hover:text-accent"
-          >
-            Envoyer
-          </button>
-        </form>
       </div>
     </section>
   )

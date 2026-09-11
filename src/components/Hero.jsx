@@ -1,83 +1,62 @@
+const telemetry = [
+  { v: '02', k: 'Apps desktop' },
+  { v: 'Rust', k: 'Back-end natif' },
+  { v: 'TS', k: 'TypeScript strict' },
+]
+
 export default function Hero() {
   return (
-    <section
-      id="top"
-      className="relative flex min-h-[820px] items-center overflow-hidden bg-hero-glow px-6 pt-20"
-    >
-      {/* Motif technique en fond */}
-      <div
-        className="pointer-events-none absolute inset-0 opacity-10"
-        style={{
-          backgroundImage: 'radial-gradient(#ffb347 1px, transparent 1px)',
-          backgroundSize: '40px 40px',
-        }}
-      />
-
-      <div className="mx-auto grid w-full max-w-container grid-cols-1 items-center gap-8 lg:grid-cols-12">
-        <div className="space-y-8 lg:col-span-8">
-          {/* Badge disponibilité */}
-          <div className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-3 py-1 text-xs font-medium uppercase tracking-widest text-accent">
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
-            </span>
-            Disponible pour de nouveaux projets
+    <section id="top" className="px-7 pb-24 pt-20">
+      <div className="mx-auto grid max-w-container grid-cols-1 items-center gap-14 lg:grid-cols-[1.1fr_0.9fr]">
+        <div>
+          <div className="kick">
+            <span className="b">[</span> 01 <span className="b">//</span> PROFIL <span className="b">]</span>
           </div>
-
-          <h1 className="text-5xl font-bold leading-none md:text-7xl">
-            Développeur <br />
-            <span className="text-accent">Web</span>
+          <h1 className="my-5 font-display text-5xl font-bold leading-[0.98] md:text-7xl">
+            Développeur
+            <br />
+            <span className="bg-gradient-to-r from-hud-cyan to-hud-blue bg-clip-text text-transparent">
+              Web &amp; Desktop
+            </span>
           </h1>
-
-          <p className="max-w-2xl text-lg text-content-muted">
-            Développeur Web JavaScript et React, passionné par la création d'expériences
-            modernes, fluides et orientées utilisateur.
+          <p className="max-w-xl text-lg text-content-muted">
+            Je conçois des <b className="font-semibold text-content">applications complètes</b>, de
+            l'architecture au produit fini — <b className="font-semibold text-content">React ·
+            TypeScript · Rust/Tauri</b>. Mes projets récents : deux applications desktop pour les
+            joueurs de <b className="font-semibold text-content">Star Citizen</b>.
           </p>
 
-          <div className="flex flex-wrap gap-4 pt-2">
-            <a
-              href="#projets"
-              className="rounded-full bg-accent px-8 py-4 font-bold text-bg transition-all hover:shadow-glow"
-            >
-              Voir mes projets
-            </a>
-            <a
-              href="#contact"
-              className="rounded-full border border-accent px-8 py-4 font-bold text-accent transition-all hover:bg-accent/10"
-            >
-              Me contacter
-            </a>
+          <div className="mt-8 flex flex-wrap gap-4">
+            <a className="btn btn-cyan" href="#projets">▸ Voir mes projets</a>
+            <a className="btn btn-ghost" href="#contact">Me contacter</a>
+          </div>
+
+          <div className="mt-11 grid grid-cols-3 gap-px border border-line bg-line">
+            {telemetry.map((t) => (
+              <div key={t.k} className="bg-panel px-4 py-4">
+                <div className="font-display text-[26px] font-bold leading-none text-hud-ice">
+                  {t.v}
+                </div>
+                <div className="mt-2 font-mono text-[10px] uppercase tracking-[0.2em] text-content-dim">
+                  {t.k}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
 
-        {/* Carte décorative flottante */}
-        <div className="hidden lg:col-span-4 lg:block">
-          <div className="glass-card flex aspect-square w-full animate-float flex-col justify-center gap-6 rounded-xl p-8">
-            <div className="flex items-center gap-4">
-              <div className="flex h-12 w-12 items-center justify-center rounded-lg border border-white/5 bg-bg-card">
-                <span className="material-symbols-outlined text-accent">code</span>
-              </div>
-              <div className="h-2 w-32 overflow-hidden rounded-full bg-white/10">
-                <div className="h-full w-2/3 bg-accent" />
-              </div>
-            </div>
-            <div className="flex items-center justify-end gap-4">
-              <div className="h-2 w-48 overflow-hidden rounded-full bg-white/10">
-                <div className="h-full w-3/4 bg-accent-orange" />
-              </div>
-              <div className="flex h-12 w-12 items-center justify-center rounded-lg border border-white/5 bg-bg-card">
-                <span className="material-symbols-outlined text-accent-orange">database</span>
-              </div>
-            </div>
-            <div className="flex items-center gap-4">
-              <div className="flex h-12 w-12 items-center justify-center rounded-lg border border-white/5 bg-bg-card">
-                <span className="material-symbols-outlined text-accent">terminal</span>
-              </div>
-              <div className="h-2 w-40 overflow-hidden rounded-full bg-white/10">
-                <div className="h-full w-1/2 bg-accent" />
-              </div>
-            </div>
+        {/* Aperçu écran */}
+        <div className="viewport hud order-first lg:order-none">
+          <div className="bar">
+            <span>SC FLEET MANAGER</span>
+            <span className="flex gap-1.5">
+              <i />
+              <i />
+              <i />
+            </span>
           </div>
+          <img src="./assets/imgs/scfm-header.png" alt="Aperçu de l'application SC Fleet Manager" />
+          <div className="scan" />
         </div>
       </div>
     </section>

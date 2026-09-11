@@ -10,42 +10,159 @@
     @apply bg-bg font-sans text-content antialiased;
   }
 
+  /* Fond spatial : glow radial + champ d'étoiles (repris de SC Fleet Manager) */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    background:
+      radial-gradient(1200px 600px at 78% -8%, rgba(59, 157, 255, 0.18), transparent 60%),
+      radial-gradient(900px 500px at 8% 12%, rgba(34, 211, 238, 0.1), transparent 55%),
+      #04060d;
+    /* Étoiles : plusieurs tailles à des positions dispersées + scintillement */
+    background-image:
+      radial-gradient(1200px 600px at 78% -8%, rgba(59, 157, 255, 0.18), transparent 60%),
+      radial-gradient(900px 500px at 8% 12%, rgba(34, 211, 238, 0.1), transparent 55%),
+      radial-gradient(1.4px 1.4px at 20% 30%, #fff, transparent),
+      radial-gradient(1.4px 1.4px at 75% 15%, #cfe8ff, transparent),
+      radial-gradient(1.2px 1.2px at 40% 70%, #fff, transparent),
+      radial-gradient(1.6px 1.6px at 85% 60%, #bcd8ff, transparent),
+      radial-gradient(1px 1px at 60% 40%, #fff, transparent),
+      radial-gradient(1.2px 1.2px at 15% 80%, #e6f2ff, transparent),
+      radial-gradient(1px 1px at 90% 85%, #fff, transparent),
+      radial-gradient(1.4px 1.4px at 50% 90%, #cfe8ff, transparent),
+      radial-gradient(0.8px 0.8px at 30% 50%, #fff, transparent),
+      radial-gradient(1px 1px at 68% 78%, #fff, transparent);
+    background-repeat: no-repeat, no-repeat, repeat, repeat, repeat, repeat, repeat, repeat, repeat, repeat, repeat, repeat;
+    background-size: 100% 100%, 100% 100%, 260px 260px, 320px 320px, 300px 300px, 380px 380px, 240px 240px, 340px 340px, 280px 280px, 400px 400px, 220px 220px, 360px 360px;
+    animation: twinkle 6s ease-in-out infinite alternate;
+  }
+  @keyframes twinkle {
+    from {
+      opacity: 0.55;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    opacity: 0.4;
+    pointer-events: none;
+    background-image:
+      linear-gradient(rgba(120, 180, 255, 0.14) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(120, 180, 255, 0.14) 1px, transparent 1px);
+    background-size: 64px 64px, 64px 64px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation: none !important;
+    }
+  }
+
   /* Accessibilité clavier */
   a:focus-visible,
   button:focus-visible,
   input:focus-visible,
   textarea:focus-visible {
-    outline: 2px solid theme('colors.accent.DEFAULT');
+    outline: 2px solid theme('colors.hud.cyan');
     outline-offset: 3px;
   }
 
-  /* Décalage des ancres sous la navbar fixe (h-20 = 80px) */
   section[id] {
-    scroll-margin-top: 96px;
+    scroll-margin-top: 84px;
   }
 }
 
 @layer components {
-  /* Carte "glassmorphism" reprise de la maquette, recolorée aux teintes prod */
-  .glass-card {
-    background: linear-gradient(to bottom right, #171717, #0c0c0c);
-    border: 1px solid theme('colors.accent.deep');
-    box-shadow: theme('boxShadow.soft');
+  /* Étiquette technique (kicker) */
+  .kick {
+    @apply font-mono text-[11px] uppercase text-hud-cyan;
+    letter-spacing: 0.32em;
+  }
+  .kick .b {
+    @apply text-content-dim;
   }
 
-  /* Icône Material Symbols */
-  .material-symbols-outlined {
-    font-family: 'Material Symbols Outlined';
-    font-weight: normal;
-    font-style: normal;
-    line-height: 1;
-    letter-spacing: normal;
-    text-transform: none;
-    display: inline-block;
-    white-space: nowrap;
-    word-wrap: normal;
-    direction: ltr;
-    -webkit-font-feature-settings: 'liga';
-    -webkit-font-smoothing: antialiased;
+  /* Corner-brackets HUD (sur .hud) */
+  .hud {
+    position: relative;
+  }
+  .hud::before,
+  .hud::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    pointer-events: none;
+  }
+  .hud::before {
+    top: -1px;
+    left: -1px;
+    border-top: 2px solid theme('colors.hud.cyan');
+    border-left: 2px solid theme('colors.hud.cyan');
+  }
+  .hud::after {
+    bottom: -1px;
+    right: -1px;
+    border-bottom: 2px solid theme('colors.hud.cyan');
+    border-right: 2px solid theme('colors.hud.cyan');
+  }
+
+  /* Viewport écran (screenshots) */
+  .viewport {
+    @apply relative border border-line-strong bg-panel p-2.5;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6), inset 0 0 40px rgba(34, 211, 238, 0.06);
+  }
+  .viewport .bar {
+    @apply flex items-center justify-between px-1 pb-2.5 pt-0.5 font-mono text-[10px] text-content-muted;
+    letter-spacing: 0.2em;
+  }
+  .viewport .bar i {
+    @apply block h-[7px] w-[7px] border border-content-dim;
+  }
+  .viewport img {
+    @apply border border-line;
+  }
+  .viewport .scan {
+    @apply pointer-events-none absolute left-2.5 right-2.5 h-0.5 animate-scan;
+    top: 40px;
+    background: linear-gradient(90deg, transparent, theme('colors.hud.cyan'), transparent);
+    opacity: 0.5;
+  }
+
+  /* Boutons */
+  .btn {
+    @apply inline-flex items-center gap-2 rounded-[4px] px-6 py-3.5 font-mono text-[13px] uppercase transition-all;
+    letter-spacing: 0.1em;
+  }
+  .btn-cyan {
+    @apply font-bold;
+    color: #04121a;
+    background: linear-gradient(180deg, theme('colors.hud.cyan'), theme('colors.hud.blue'));
+    box-shadow: 0 0 0 1px rgba(159, 232, 255, 0.4), 0 10px 30px rgba(34, 211, 238, 0.25);
+  }
+  .btn-cyan:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 0 1px rgba(159, 232, 255, 0.6), 0 14px 40px rgba(34, 211, 238, 0.4);
+  }
+  .btn-ghost {
+    @apply border border-line-strong text-hud-ice;
+  }
+  .btn-ghost:hover {
+    @apply border-hud-cyan;
+    background: rgba(34, 211, 238, 0.07);
+  }
+
+  /* Badge statut pulsé */
+  .dot-ok {
+    @apply block h-2 w-2 animate-pulse rounded-full;
+    background: theme('colors.hud.ok');
   }
 }

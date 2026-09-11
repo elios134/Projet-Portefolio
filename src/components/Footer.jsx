@@ -1,13 +1,10 @@
 export default function Footer() {
   return (
-    <footer className="mt-12 flex flex-col items-center justify-between gap-6 bg-footer-glow px-6 py-10 md:flex-row">
-      <p className="font-display text-3xl text-content-muted">© André Bribanick</p>
-
-      <a href="#top" aria-label="Retour en haut">
-        <img src="./assets/imgs/logo.png" alt="Logo" className="h-28 w-28" />
+    <footer className="border-t border-line py-7 text-center font-mono text-[11px] tracking-[0.14em] text-content-dim">
+      © 2026 ANDRÉ BRIBANICK · DÉVELOPPEUR WEB &amp; DESKTOP ·{' '}
+      <a href="https://github.com/elios134" className="text-hud-cyan">
+        GITHUB
       </a>
-
-      <p className="font-display text-3xl text-content-muted">Portefolio v2</p>
     </footer>
   )
 }
