@@ -16,9 +16,11 @@ export default function Navbar() {
       <nav className="mx-auto flex h-16 max-w-container items-center justify-between gap-6 px-7">
         {/* Identité */}
         <a href="#top" className="flex items-center gap-3">
-          <span className="grid h-[34px] w-[34px] place-items-center rounded-md border border-line-strong text-hud-cyan shadow-[inset_0_0_14px_rgba(34,211,238,0.25)]">
-            ◈
-          </span>
+          <img
+            src="./assets/imgs/logo.png"
+            alt="Logo André Bribanick"
+            className="h-9 w-9 rounded-md border border-line-strong object-contain p-0.5 shadow-[inset_0_0_14px_rgba(34,211,238,0.25)]"
+          />
           <span className="leading-tight">
             <b className="block font-display text-[15px] font-bold tracking-[0.14em]">
               ANDRÉ BRIBANICK
