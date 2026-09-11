@@ -12,3 +12,4 @@ npm-debug.log*
 # Éditeurs / OS
 .DS_Store
 *.local
+.claude/
