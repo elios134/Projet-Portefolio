@@ -1,7 +1,7 @@
 import SectionTitle from './SectionTitle'
 
 const socials = [
-  { label: 'LinkedIn ↗', href: 'https://www.linkedin.com/in/andre-bribanick-7a016412b/' },
+  { label: 'LinkedIn ↗', href: 'https://www.linkedin.com/in/andré-bribanick-7a016412b/' },
   { label: 'GitHub ↗', href: 'https://github.com/elios134' },
   { label: 'Email ↗', href: 'mailto:andrebribanick@gmail.com' },
 ]
