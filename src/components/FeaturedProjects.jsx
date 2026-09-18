@@ -96,7 +96,7 @@ function Panel({ project, reverse }) {
 export default function FeaturedProjects() {
   return (
     <section id="projets" className="mx-auto max-w-container px-7 py-24">
-      <SectionTitle index="02" kicker="PROJETS PHARES" title="Projets phares" right={<>2 applications<br />en production</>} />
+      <SectionTitle index="02" kicker="PROJETS PHARES" title="Projets phares" right={<>3 projets<br />sélectionnés</>} />
       {featuredProjects.map((project, i) => (
         <Panel key={project.title} project={project} reverse={i % 2 === 1} />
       ))}

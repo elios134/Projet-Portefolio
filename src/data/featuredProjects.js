@@ -55,4 +55,31 @@ export const featuredProjects = [
       { label: 'Doc ↗', href: 'https://github.com/elios134/sc-mfd#readme', solid: false },
     ],
   },
+  {
+    title: 'Garage Martin',
+    tag: 'GARAGE MARTIN · SITE + PRISE DE RDV',
+    status: 'DÉMO',
+    barLabel: 'SITE VITRINE + RÉSERVATION · NEXT.JS 16',
+    role: 'Site vitrine & prise de rendez-vous · conception & développement full-stack',
+    image: './assets/imgs/Capture-garage-accueil.png',
+    log: [
+      {
+        t: 'Problème',
+        d: "Un garage a besoin d'une vitrine moderne ET d'un vrai flux de prise de rendez-vous — devis, validation, planning — sans jongler entre téléphone, mails et cahier.",
+      },
+      {
+        t: 'Ma solution',
+        d: "Site full-stack : demande de devis (invité ou compte), devis détaillés par lignes avec PDF généré et envoyé par email, flux devis → RDV, espace client (véhicules, historique) et espace staff (planning FullCalendar, tableau de bord, fiches clients, archivage).",
+      },
+      {
+        t: 'Résultat',
+        d: "Auth par rôles (client/staff), base SQLite via Prisma, design sombre cinématographique (scroll parallax). Aperçu front déployé sur GitHub Pages.",
+      },
+    ],
+    tech: ['Next.js 16', 'TypeScript', 'Prisma', 'SQLite', 'NextAuth', 'Tailwind'],
+    links: [
+      { label: '▸ Voir la démo', href: 'https://elios134.github.io/garage-site/', solid: true },
+      { label: 'Code ↗', href: 'https://github.com/elios134/garage-site', solid: false },
+    ],
+  },
 ]
