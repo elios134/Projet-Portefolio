@@ -22,7 +22,7 @@ export default function Contact() {
             </a>
             <a
               className="btn btn-ghost"
-              href="https://fr.linkedin.com/in/andr%C3%A9-bribanick-7a016412b"
+              href="https://www.linkedin.com/in/andré-bribanick-7a016412b/"
               target="_blank"
               rel="noopener noreferrer"
             >
